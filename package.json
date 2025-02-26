@@ -1,0 +1,25 @@
+{
+  "name": "online-class-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js",
+    "start-server":"node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shubhamdubey02/online-class-node.js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shubhamdubey02/online-class-node.js/issues"
+  },
+  "homepage": "https://github.com/shubhamdubey02/online-class-node.js#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
