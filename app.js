@@ -1,50 +1,17 @@
-// const http = require('http');
-// const fs = require('fs');
+const path = require('path');
+const express = require('express');
+const app = express();
+const adminRoutes = require('./routes/admin.routes')
+const shopRoutes = require('./routes/shop.routes')
+const bodyParser = require('body-parser');
 
-// const server = http.createServer((req, res) => {
-//     const url = req.url;
-//     const method = req.method;
+app.use(bodyParser.urlencoded({ extended: false }));
 
-//     if (url === '/') {
-//         res.write('<html>');
-//         res.write('<head><title>Enter the message</title></head>');
-//         res.write('<body><form action="/message" method="POST"><input type="text" name="message"><button type="submit">Send</button></form></body>');
-//         res.write('</html>');
-//         return res.end();
-//     }
+app.use('/admin', adminRoutes);
+app.use(shopRoutes);
 
-//     if (url === '/message' && method === 'POST') {
-//         fs.writeFile('message.txt', 'DUMMY', (err) => {
-//             if (err) {
-//                 console.error(err);
-//             }
-//             res.statusCode = 302;
-//             res.setHeader('Location', '/');
-//             return res.end();
-//         });
-//         return;
-//     }
-
-//     res.setHeader('Content-Type', 'text/html');
-//     res.write('<html>');
-//     res.write('<head><title>My first page</title></head>');
-//     res.write('<body>Hello, test Node.js</body>');
-//     res.write('</html>');
-//     res.end();
-// });
-
-// server.listen(3000, () => {
-//     console.log('Server is running on port 3000');
-// });
-
-const http = require('http');
-const routes = require('./routes');
-
-console.log(routes.someText); // Ensure this is properly exported in routes.js
-
-const server = http.createServer(routes.handler);
-
-server.listen(3000, () => {
-    console.log("Server is running on port 3000");
+app.use((req, res, next) => {
+    res.status(404).sendFile(path.join(__dirname, 'views', '404.html'));
 });
 
+app.listen(3000);
