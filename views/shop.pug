@@ -2,11 +2,11 @@ doctype html
 html(lang="en")
     head
         meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title My shop
-        link(rel="stylesheet",href="/css/main.css")
-        lnik(rel="stylesheet",href="/css/product.css")
-    body 
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title #{doctitle}
+        link(rel="stylesheet" href="/css/main.css")
+        lnik(rel="stylesheet" href="/css/product.css")
+body 
     header.main-header
         nav.main-header_nav
             ul.main-header_intem-list
@@ -14,3 +14,16 @@ html(lang="en")
                     a.active(href="/") Shop
                 li.main-header_item
                     a(href="admin/add-product") Add Product    
+    main
+        .grid
+            each product in prods
+                article.card.product-item
+                    header.card_header
+                        h1.product_title #{product.title}
+                    div.card_image
+                        img(src="https://media.istockphoto.com/id/1313742092/photo/business-partnership-business-man-investor-handshake-with-effect-global-network-link.jpg?s=1024x1024&w=is&k=20&c=uWAW24rxmFCuzlVDTO8EyZe1I6OBcoiP4g7vY233r8Q=" alt="A Book")
+                    div.card_content
+                        h2.product_price $19.99
+                        p.product_description A very interesting book about so many things.
+                    .card_actions
+                        button.btn Add to cart

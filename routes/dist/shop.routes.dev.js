@@ -11,7 +11,11 @@ var router = express.Router();
 var adminData = require('./admin.routes');
 
 router.get('/', function (req, res, next) {
-  res.render('shop'); // console.log(adminData.products);
+  var products = adminData.products;
+  res.render('shop', {
+    prods: products,
+    doctitle: 'shop'
+  }); // console.log(adminData.products);
   // res.sendFile(path.join(rootDir, 'views', 'shop.html'));
 });
 module.exports = router;
