@@ -14,8 +14,8 @@ router.get('/', function (req, res, next) {
   var products = adminData.products;
   res.render('shop', {
     prods: products,
-    doctitle: 'shop'
-  }); // console.log(adminData.products);
-  // res.sendFile(path.join(rootDir, 'views', 'shop.html'));
+    pageTitle: 'Shop',
+    path: '/'
+  });
 });
 module.exports = router;
