@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Product</title>
+    <title>{{ pageTitle }}</title>
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/product.css">
 </head>
 
 <body>
 
-    
+
     <header class="main-header">
         <nav class="main-header_nav">
             <ul class="main-header_item-list">
@@ -21,8 +21,30 @@
         </nav>
     </header>
     <main>
-        <h1>My Product</h1>
-        <p>List of all the products...</p>
+        {{#if hasProducts }}
+        <div class="grid">
+            {{#each prods }}
+            <article class="grid product-item">
+                <header class="card-header">
+                    <h1 class="product_title">{{ this.title }}</h1>
+                </header>
+                <div class="card_image">
+                    <img src="https://media.istockphoto.com/id/1313742092/photo/business-partnership-business-man-investor-handshake-with-effect-global-network-link.jpg?s=1024x1024&w=is&k=20&c=uWAW24rxmFCuzlVDTO8EyZe1I6OBcoiP4g7vY233r8Q="
+                        alt="A Book">
+                </div>
+                <div class="card_content">
+                    <h2 class="product_price">$19.99</h2>
+                    <p class="product_description">A very interesting book about</p>
+                </div>
+                <div class="card_actions">
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </article>
+            {{/each}}
+        </div>
+        {{ else }}
+        <h1>No Product found and check</h1>
+        {{/if}}
     </main>
 </body>
 

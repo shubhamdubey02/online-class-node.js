@@ -1,11 +1,11 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const expressHbs  = require('express-handlebars');
+const expressHbs = require('express-handlebars');
 
 const app = express();
 
-// app.engine('hbs', expressHbse());
+//app.engine('hbs', expressHbs({ layoutsDir: 'views/layouts', defaultLayout: 'main-layout' }));
 app.set('view engine', 'hbs');
 app.set('views', 'views');
 
