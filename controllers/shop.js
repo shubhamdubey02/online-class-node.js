@@ -38,6 +38,12 @@ exports.getCart = (req, res, next) => {
   });
 };
 
+exports.postCard = (req, res, next) => {
+  const prodId = req.body.productId;
+  console.log(prodId);
+  res.redirect('/card');
+};
+
 exports.getOders = (req, res, next) => {
   res.render('shop/oders', {
     path: '/oders',
